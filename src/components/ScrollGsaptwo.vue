@@ -5,19 +5,22 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { useGsapAnimation } from '@/composables/useGsapAnimation'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-onMounted(() => {
-  // ScrollTrigger.create({
-  //   trigger: '.wrapper',
-  //   pin: true,
-  //   start: 'top top',
-  //   end: '+=1600',
-  // })
+// onMounted(() => {
+// ScrollTrigger.create({
+//   trigger: '.wrapper',
+//   pin: true,
+//   start: 'top top',
+//   end: '+=1600',
+// })
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+useGsapAnimation((gsap: any) => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: '.wrapper',
@@ -38,7 +41,7 @@ onMounted(() => {
 
 <style>
 body {
-  height: 400vh;
+  height: 100vh;
 }
 .wrapper {
   height: 100vh; /* Scroll bo‘lishi uchun uzun */

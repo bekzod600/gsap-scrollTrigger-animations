@@ -8,13 +8,14 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+// import { onMounted } from 'vue'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import { useGsapAnimation } from '@/composables/useGsapAnimation'
 
 gsap.registerPlugin(ScrollTrigger)
 
-onMounted(() => {
+useGsapAnimation(() => {
   gsap.to('.bg', {
     y: -800, // fon yuqoriga ko‘tariladi
     scrollTrigger: {

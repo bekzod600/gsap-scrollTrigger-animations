@@ -8,13 +8,15 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+// import { onMounted } from 'vue'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import { useGsapAnimation } from '@/composables/useGsapAnimation'
 
 gsap.registerPlugin(ScrollTrigger)
 
-onMounted(() => {
+// onMounted(() => {
+useGsapAnimation(() => {
   ScrollTrigger.create({
     trigger: '.panel2',
     pin: true,

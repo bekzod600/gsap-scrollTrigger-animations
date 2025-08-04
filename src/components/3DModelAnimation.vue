@@ -13,14 +13,15 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+// import { onMounted } from 'vue'
 import '@google/model-viewer'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import { useGsapAnimation } from '@/composables/useGsapAnimation'
 
 gsap.registerPlugin(ScrollTrigger)
 
-onMounted(() => {
+useGsapAnimation(() => {
   // const model = document.querySelector('#myModel') as HTMLElement
   gsap.to('#myModel', {
     attr: { 'camera-orbit': '360deg 75deg 3m' }, // 0° → 360°
